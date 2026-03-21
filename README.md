@@ -1,4 +1,5 @@
-# Daily Planner Website
+
+  ## 📝 Daily Planner Website
 
 This is a simple daily planner website made with HTML, CSS, and JavaScript.
 
@@ -46,10 +47,7 @@ That means:
 - `create.css`, `progress.css`, `level.css`, `about.css` for page styling
 - `index.js`, `create.js`, `progress.js`, `level.js` for page logic
 
-## How to run
 
-Just open `index.html` in a browser.
 
-## Note
 
-This project was first made as a planner website and later updated into a daily planner with a cleaner design and simpler input style.
+
