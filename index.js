@@ -80,6 +80,7 @@ function renderPlans() {
         card.appendChild(header);
 
         let allDone = plan.items.length > 0;
+        let doneCount = 0;
 
         const isPast = plan.date < todayKey;
 
@@ -93,7 +94,11 @@ function renderPlans() {
             checkbox.dataset.index = String(idx);
             checkbox.disabled = isPast;
 
-            if (!item.done) allDone = false;
+            if (item.done) {
+                doneCount += 1;
+            } else {
+                allDone = false;
+            }
 
             const text = document.createElement("span");
             text.textContent = item.text || [item.subject, item.topic].filter(Boolean).join(" - ");
@@ -102,6 +107,9 @@ function renderPlans() {
             row.appendChild(text);
             card.appendChild(row);
         });
+
+        const progress = plan.items.length ? (doneCount / plan.items.length) * 100 : 0;
+        card.style.setProperty("--plan-progress", `${progress}%`);
 
         if (allDone) {
             card.classList.add("complete");

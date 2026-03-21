@@ -159,8 +159,20 @@ function renderLineChart(target, data, mode) {
         return { ...row, x, y };
     });
 
-    const path = points.map((p, i) => `${i === 0 ? "M" : "L"}${p.x},${p.y}`).join(" ");
-    const areaPath = `${path} L${points[points.length - 1].x},${height - padding} L${points[0].x},${height - padding} Z`;
+    let path = points.map((p, i) => `${i === 0 ? "M" : "L"}${p.x},${p.y}`).join(" ");
+    let areaPath = `${path} L${points[points.length - 1].x},${height - padding} L${points[0].x},${height - padding} Z`;
+
+    if (mode === "today" && points.length === 1) {
+        const startX = padding + 18;
+        const endX = width - padding;
+        const dotX = startX + 18;
+        const point = points[0];
+
+        points[0] = { ...point, x: dotX };
+        path = `M${dotX},${point.y} L${endX},${point.y}`;
+        areaPath = `M${dotX},${height - padding} L${dotX},${point.y} L${endX},${point.y} L${endX},${height - padding} Z`;
+    }
+
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
     svg.style.width = `${width}px`;
