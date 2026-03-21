@@ -1,5 +1,5 @@
- 📝
- ## Daily Planner Website
+
+  ## 📝 Daily Planner Website
 
 This is a simple daily planner website made with HTML, CSS, and JavaScript.
 
