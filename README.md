@@ -50,6 +50,5 @@ That means:
 
 Just open `index.html` in a browser.
 
-## Note
 
-This project was first made as a planner website and later updated into a daily planner with a cleaner design and simpler input style.
+
