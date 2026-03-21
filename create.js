@@ -11,11 +11,12 @@ function addRow() {
     subjects.appendChild(node);
 }
 
-function addRowWithValues(text, done) {
+function addRowWithItemValues(text, time, done) {
     const node = template.content.cloneNode(true);
     const row = node.querySelector(".subject-group");
     const inputs = node.querySelectorAll("input");
     if (inputs[0]) inputs[0].value = text;
+    if (inputs[1]) inputs[1].value = time || "";
     if (row) row.dataset.done = done ? "true" : "false";
     subjects.appendChild(node);
 }
@@ -45,6 +46,7 @@ function prefillForEdit() {
 
     plan.items.forEach((item, index) => {
         const text = item.text || [item.subject, item.topic].filter(Boolean).join(" - ");
+        const time = item.time || "";
         if (index === 0) {
             const row = document.createElement("div");
             row.className = "subject-group";
@@ -52,13 +54,15 @@ function prefillForEdit() {
             row.dataset.done = item.done ? "true" : "false";
             row.innerHTML = `
                 <input type="text" name="plans[]" placeholder="Add your plan" required>
+                <input type="time" name="times[]" aria-label="Plan time">
                 <button type="button" class="remove-btn" aria-label="Remove plan">Remove</button>
             `;
             const inputs = row.querySelectorAll("input");
             if (inputs[0]) inputs[0].value = text;
+            if (inputs[1]) inputs[1].value = time;
             subjects.appendChild(row);
         } else {
-            addRowWithValues(text, item.done);
+            addRowWithItemValues(text, time, item.done);
         }
     });
 }
@@ -80,25 +84,38 @@ form.addEventListener("submit", (e) => {
     const dateInput = document.getElementById("date");
     const dateValue = dateInput ? dateInput.value : "";
     const items = [];
+    let hasInvalidTimeOnlyRow = false;
 
     for (const row of rows) {
-        const inputs = row.querySelectorAll("input");
-        const text = inputs[0].value.trim();
-        const hasAny = text.length > 0;
+        const textInput = row.querySelector('input[name="plans[]"]');
+        const timeInput = row.querySelector('input[name="times[]"]');
+        const text = textInput ? textInput.value.trim() : "";
+        const time = timeInput ? timeInput.value : "";
+        const hasAny = text.length > 0 || time.length > 0;
 
         if (!hasAny && row.dataset.required !== "true") {
             row.remove();
             continue;
         }
 
+        if (!text && time) {
+            hasInvalidTimeOnlyRow = true;
+            continue;
+        }
+
         if (text) {
             const done = row.dataset.done === "true";
-            items.push({ text, done });
+            items.push({ text, time, done });
         }
     }
 
     if (!dateValue) {
         alert("Please select a date.");
+        return;
+    }
+
+    if (hasInvalidTimeOnlyRow) {
+        alert("Please enter a plan name for every time you add.");
         return;
     }
 

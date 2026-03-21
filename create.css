@@ -119,13 +119,17 @@ input[type="date"] {
 
 .subject-group {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) 160px auto;
     gap: 12px;
     align-items: center;
     padding: 12px;
     border: 1px solid var(--line);
     border-radius: 14px;
     background: var(--surface-alt);
+}
+
+.subject-group input[type="time"] {
+    min-width: 0;
 }
 
 .remove-btn {

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Routine</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="create.css">
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="progress.html">PROGRESS</a></li>
+            <li><a href="level.html">LEVEL</a></li>
+            <li><a href="dailyroutine.html">DAILY ROUTINE</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+        </ul>
+    </nav>
+
+    <form class="form">
+        <a class="close-btn" href="dailyroutine.html">&times;</a>
+
+        <h2><span class="page-icon">✏</span>Create Daily Routine</h2>
+
+        <div class="field">
+            <label>Routine Title</label>
+            <input type="text" id="title" placeholder="e.g. Weekend Routine" required>
+        </div>
+
+        <div class="subjects-header">
+            <label>Add Tasks</label>
+            <div class="header-actions">
+                <button type="reset" class="button clear-btn">Clear All</button>
+                <button type="button" class="button add-btn">➕ Add Task</button>
+            </div>
+        </div>
+
+        <div class="subjects">
+            <div class="subject-group" data-required="true">
+                <input type="text" name="tasks[]" placeholder="Add your task" required>
+                <input type="time" name="times[]">
+                <button type="button" class="remove-btn">Remove</button>
+            </div>
+        </div>
+
+        <button type="submit" class="button primary">💾 Save Routine</button>
+    </form>
+
+    <template id="task-template">
+        <div class="subject-group">
+            <input type="text" name="tasks[]" placeholder="Add task">
+            <input type="time" name="times[]">
+            <button type="button" class="remove-btn">Remove</button>
+        </div>
+    </template>
+
+    <script src="dailyroutinecreate.js"></script>
+</body>
+
+</html>

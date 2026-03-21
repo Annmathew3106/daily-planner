@@ -17,6 +17,7 @@
             <li><a href="index.html">HOME</a></li>
             <li><a href="progress.html">PROGRESS</a></li>
             <li><a href="level.html">LEVEL</a></li>
+            <li><a href="dailyroutine.html">DAILY ROUTINE</a></li>
             <li><a href="about.html">ABOUT</a></li>
         </ul>
     </nav>
@@ -40,6 +41,7 @@
         <div class="subjects" aria-live="polite">
             <div class="subject-group" data-required="true">
                 <input type="text" name="plans[]" placeholder="Add your plan" required>
+                <input type="time" name="times[]" aria-label="Plan time">
                 <button type="button" class="remove-btn" aria-label="Remove plan">Remove</button>
             </div>
         </div>
@@ -51,6 +53,7 @@
     <template id="subject-template">
         <div class="subject-group">
             <input type="text" name="plans[]" placeholder="Add your plan">
+            <input type="time" name="times[]" aria-label="Plan time">
             <button type="button" class="remove-btn" aria-label="Remove plan">Remove</button>
         </div>
     </template>

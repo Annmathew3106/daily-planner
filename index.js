@@ -2,14 +2,6 @@ const plansRoot = document.getElementById("plans");
 const storageKey = "dailyPlans";
 const legacyStorageKey = "studyPlans";
 
-function getTodayKey() {
-    const now = new Date();
-    const yyyy = now.getFullYear();
-    const mm = String(now.getMonth() + 1).padStart(2, "0");
-    const dd = String(now.getDate()).padStart(2, "0");
-    return `${yyyy}-${mm}-${dd}`;
-}
-
 function formatPlanDate(dateValue) {
     const date = new Date(`${dateValue}T00:00:00`);
     if (Number.isNaN(date.getTime())) return dateValue;
@@ -18,6 +10,12 @@ function formatPlanDate(dateValue) {
     const mm = String(date.getMonth() + 1).padStart(2, "0");
     const yyyy = date.getFullYear();
     return `${day} ${dd}-${mm}-${yyyy}`;
+}
+
+function hasPlanDayEnded(dateValue) {
+    const endOfPlanDay = new Date(`${dateValue}T23:59:59`);
+    if (Number.isNaN(endOfPlanDay.getTime())) return false;
+    return Date.now() > endOfPlanDay.getTime();
 }
 
 function loadPlans() {
@@ -31,6 +29,10 @@ function savePlans(plans) {
     localStorage.setItem(storageKey, JSON.stringify(plans));
 }
 
+function formatItemTime(timeValue) {
+    return timeValue || "";
+}
+
 function renderPlans() {
     if (!plansRoot) return;
     const plans = loadPlans().sort((a, b) => {
@@ -39,8 +41,6 @@ function renderPlans() {
         return b.date.localeCompare(a.date);
     });
     plansRoot.innerHTML = "";
-    const todayKey = getTodayKey();
-
     if (plans.length === 0) {
         const empty = document.createElement("p");
         empty.className = "empty-state";
@@ -82,7 +82,7 @@ function renderPlans() {
         let allDone = plan.items.length > 0;
         let doneCount = 0;
 
-        const isPast = plan.date < todayKey;
+        const isPast = hasPlanDayEnded(plan.date);
 
         plan.items.forEach((item, idx) => {
             const row = document.createElement("label");
@@ -100,11 +100,22 @@ function renderPlans() {
                 allDone = false;
             }
 
+            const details = document.createElement("div");
+            details.className = "plan-item-copy";
+
+            if (item.time) {
+                const time = document.createElement("span");
+                time.className = "plan-item-time";
+                time.textContent = formatItemTime(item.time);
+                details.appendChild(time);
+            }
+
             const text = document.createElement("span");
             text.textContent = item.text || [item.subject, item.topic].filter(Boolean).join(" - ");
+            details.appendChild(text);
 
             row.appendChild(checkbox);
-            row.appendChild(text);
+            row.appendChild(details);
             card.appendChild(row);
         });
 
