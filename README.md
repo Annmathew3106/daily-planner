@@ -46,9 +46,7 @@ That means:
 - `create.css`, `progress.css`, `level.css`, `about.css` for page styling
 - `index.js`, `create.js`, `progress.js`, `level.js` for page logic
 
-## How to run
 
-Just open `index.html` in a browser.
 
 
 
