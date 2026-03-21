@@ -2,7 +2,7 @@
 
 This is a simple daily planner website made with HTML, CSS, and JavaScript.
 
-The idea of this project is to help a user plan the day in an easy way. You can add plans for a date, check your progress, and see your level and rewards.
+The idea of this project is to help a user plan the day in an easy way. You can add plans for a date, check your progress, and see your level and motivation growth.
 
 ## Pages
 
@@ -16,7 +16,7 @@ The idea of this project is to help a user plan the day in an easy way. You can 
   Page to see daily, weekly, and monthly progress.
 
 - `level.html`  
-  Page to see rewards and level.
+  Page to see motivation progress and level.
 
 - `about.html`  
   Short information about the website.
@@ -27,7 +27,7 @@ The idea of this project is to help a user plan the day in an easy way. You can 
 - Edit and delete plans
 - Mark tasks as done
 - Track progress
-- Reward and level system
+- Motivation and level system
 - Responsive layout for smaller screens
 
 ## How it works
