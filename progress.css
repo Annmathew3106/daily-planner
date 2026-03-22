@@ -1,5 +1,5 @@
 body {
-    background: var(--bg);
+    background: #fff7f0;
 }
 
 .page-icon,
@@ -13,20 +13,20 @@ body {
 
 .page-icon {
     margin-right: 10px;
-    color: var(--accent-dark);
+    color: #cf6c23;
 }
 
 .subtitle-icon {
     margin-right: 8px;
-    color: var(--accent);
+    color: #ee8c3f;
 }
 
 .progress-card {
     margin-top: 22px;
     padding: 24px;
     border-radius: 20px;
-    background: var(--surface-alt);
-    border: 1px solid var(--line);
+    background: #fff4ea;
+    border: 1px solid #eedfd2;
 }
 
 .progress-header {
@@ -45,12 +45,12 @@ body {
 .progress-header h3 {
     margin: 0;
     font-size: 1.15rem;
-    color: var(--text);
+    color: #2f241c;
 }
 
 .progress-subtitle {
     margin: 0;
-    color: var(--muted);
+    color: #756252;
     font-size: 0.92rem;
 }
 
@@ -59,33 +59,56 @@ body {
     height: 24px;
     margin-right: 8px;
     border-radius: 50%;
-    background: var(--accent-soft);
-    color: var(--accent-dark);
+    background: rgba(238, 140, 63, 0.14);
+    color: #cf6c23;
     font-size: 13px;
 }
 
 .select-wrap select {
     min-height: 44px;
-    padding: 10px 40px 10px 12px;
-    border: 1px solid var(--line);
+    padding: 10px 56px 10px 12px;
+    border: 1px solid #eedfd2;
     border-radius: 12px;
     background: #fffaf5;
-    color: var(--text);
+    color: #2f241c;
     appearance: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.select-wrap select:focus-visible {
+    outline: 2px solid #ee8c3f;
+    outline-offset: 2px;
 }
 
 .select-wrap {
     position: relative;
 }
 
-.select-wrap::after {
-    content: "\2304";
+.select-wrap::before {
+    content: "";
     position: absolute;
-    right: 14px;
+    top: 6px;
+    bottom: 6px;
+    right: 6px;
+    width: 34px;
+    border-radius: 9px;
+    border: 1px solid #d8b696;
+    background: #f4dcc5;
+    pointer-events: none;
+}
+
+.select-wrap::after {
+    content: "";
+    position: absolute;
+    right: 16px;
     top: 50%;
-    transform: translateY(-52%);
-    color: var(--accent-dark);
-    font-size: 1rem;
+    transform: translateY(-54%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #cf6c23;
     pointer-events: none;
 }
 
@@ -103,7 +126,7 @@ body {
 .line-chart,
 .week-legend {
     background: #fffaf5;
-    border: 1px solid var(--line);
+    border: 1px solid #eedfd2;
     border-radius: 16px;
 }
 
@@ -127,7 +150,7 @@ body {
 
 .line-path {
     fill: none;
-    stroke: var(--accent);
+    stroke: #ee8c3f;
     stroke-width: 3;
 }
 
@@ -137,7 +160,7 @@ body {
 
 .line-point {
     fill: #ffffff;
-    stroke: var(--accent);
+    stroke: #ee8c3f;
     stroke-width: 2;
 }
 
@@ -165,17 +188,17 @@ body {
 .week-legend-item {
     padding: 10px 12px;
     border-radius: 12px;
-    background: var(--surface-alt);
-    border: 1px solid var(--line);
+    background: #fff4ea;
+    border: 1px solid #eedfd2;
     font-size: 0.9rem;
     font-weight: 700;
-    color: var(--text);
+    color: #2f241c;
 }
 
 .week-legend-item span {
     display: block;
     margin-top: 4px;
-    color: var(--muted);
+    color: #756252;
     font-size: 0.82rem;
     font-weight: 600;
 }
@@ -201,3 +224,4 @@ body {
         grid-template-columns: 1fr;
     }
 }
+

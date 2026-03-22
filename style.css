@@ -25,8 +25,8 @@
 body {
     margin: 0;
     min-height: 100vh;
-    background: var(--bg);
-    color: var(--text);
+    background: #fff7f0;
+    color: #2f241c;
     font-family: "Segoe UI", Arial, sans-serif;
     padding-left: 248px;
 }
@@ -41,7 +41,7 @@ nav {
     left: 0;
     width: 248px;
     height: 100vh;
-    background: var(--sidebar);
+    background: #d8a17c;
     border-right: 1px solid rgba(47, 36, 28, 0.08);
     box-shadow: 10px 0 24px rgba(47, 36, 28, 0.08);
 }
@@ -71,7 +71,7 @@ nav a {
     padding: 13px 16px;
     border-radius: 14px;
     text-decoration: none;
-    color: var(--sidebar-muted);
+    color: #fff9f3;
     font-weight: 700;
     letter-spacing: 0.04em;
     transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
@@ -94,10 +94,10 @@ nav a.active {
 .content {
     margin: 18px;
     padding: 28px;
-    background: var(--surface);
-    border: 1px solid var(--line);
+    background: #fffaf5;
+    border: 1px solid #eedfd2;
     border-radius: 24px;
-    box-shadow: var(--shadow);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
 }
 
 .header-row {
@@ -115,8 +115,8 @@ nav a.active {
     height: 44px;
     margin-right: 12px;
     border-radius: 12px;
-    background: var(--accent-soft-2);
-    color: var(--accent-dark);
+    background: rgba(255, 198, 154, 0.4);
+    color: #cf6c23;
     font-size: 1.15rem;
     vertical-align: 6px;
 }
@@ -134,8 +134,17 @@ nav a.active {
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.7;
-    color: var(--muted);
+    color: #756252;
     max-width: 760px;
+}
+
+.stats-heading {
+    margin: 16px 0 0;
+    color: #756252;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 .badge-row {
@@ -151,9 +160,9 @@ nav a.active {
     gap: 8px;
     padding: 9px 13px;
     border-radius: 999px;
-    background: var(--surface-alt);
-    border: 1px solid var(--line);
-    color: var(--muted);
+    background: #fff4ea;
+    border: 1px solid #eedfd2;
+    color: #756252;
     font-size: 0.84rem;
     font-weight: 700;
 }
@@ -183,7 +192,7 @@ nav a.active {
     padding: 10px 18px;
     border: none;
     border-radius: 12px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    background: linear-gradient(135deg, #ee8c3f, #cf6c23);
     color: #fffdf9;
     text-decoration: none;
     font-weight: 700;
@@ -209,8 +218,8 @@ nav a.active {
 
 .plan,
 .card {
-    background: var(--surface);
-    border: 1px solid var(--line);
+    background: #fffaf5;
+    border: 1px solid #eedfd2;
     border-radius: 18px;
     padding: 18px;
     box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
@@ -243,22 +252,58 @@ nav a.active {
 }
 
 .plan.complete::after {
-    background: linear-gradient(90deg, var(--success), #14b8a6);
+    background: linear-gradient(90deg, #b8832e, #14b8a6);
 }
 
 .plan-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 12px;
     margin-bottom: 14px;
+}
+
+.plan-heading {
+    display: grid;
+    gap: 6px;
 }
 
 .plan h3 {
     margin: 0;
     font-size: 1rem;
     font-weight: 700;
-    color: var(--text);
+    color: #2f241c;
+}
+
+.plan-status-badge {
+    display: inline-flex;
+    width: fit-content;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid #eedfd2;
+    background: #fff4ea;
+    color: #756252;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+.plan-status-badge--today {
+    border-color: #dec9a4;
+    background: #f8eedb;
+    color: #755622;
+}
+
+.plan-status-badge--future {
+    border-color: #cfd8e7;
+    background: #f2f6fb;
+    color: #40506a;
+}
+
+.plan-status-badge--past {
+    border-color: #dfcfbf;
+    background: #f7f2eb;
+    color: #7a6550;
 }
 
 .plan-actions {
@@ -268,21 +313,21 @@ nav a.active {
 
 .plan-edit,
 .plan-delete {
-    border: 1px solid var(--line);
+    border: 1px solid #eedfd2;
     border-radius: 10px;
     padding: 7px 12px;
     font-size: 0.84rem;
     font-weight: 700;
     cursor: pointer;
-    background: var(--surface-alt);
+    background: #fff4ea;
 }
 
 .plan-edit {
-    color: var(--accent-dark);
+    color: #cf6c23;
 }
 
 .plan-delete {
-    color: var(--danger);
+    color: #b91c1c;
 }
 
 .plan-item {
@@ -290,7 +335,7 @@ nav a.active {
     align-items: flex-start;
     gap: 10px;
     margin-bottom: 10px;
-    color: var(--muted);
+    color: #756252;
     font-size: 0.95rem;
 }
 
@@ -302,7 +347,12 @@ nav a.active {
     margin-top: 3px;
     width: 16px;
     height: 16px;
-    accent-color: var(--accent);
+    accent-color: #ee8c3f;
+}
+
+.plan-item input:disabled {
+    cursor: not-allowed;
+    opacity: 0.58;
 }
 
 .plan-item-copy {
@@ -315,16 +365,23 @@ nav a.active {
     width: fit-content;
     padding: 2px 8px;
     border-radius: 999px;
-    background: var(--accent-soft);
-    color: var(--accent-dark);
+    background: rgba(238, 140, 63, 0.14);
+    color: #cf6c23;
     font-size: 0.77rem;
     font-weight: 700;
     letter-spacing: 0.03em;
 }
 
+.plan-check-hint {
+    margin: 8px 0 0;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #756252;
+}
+
 .empty-state {
     margin-top: 18px;
-    color: var(--muted);
+    color: #756252;
     font-weight: 600;
 }
 

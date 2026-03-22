@@ -54,7 +54,10 @@ function prefillForEdit() {
             row.dataset.done = item.done ? "true" : "false";
             row.innerHTML = `
                 <input type="text" name="plans[]" placeholder="Add your plan" required>
-                <input type="time" name="times[]" aria-label="Plan time">
+                <div class="time-field">
+                    <input type="time" name="times[]" aria-label="Plan time (optional)">
+                    <span class="time-optional-badge">Optional</span>
+                </div>
                 <button type="button" class="remove-btn" aria-label="Remove plan">Remove</button>
             `;
             const inputs = row.querySelectorAll("input");

@@ -23,39 +23,48 @@
     </nav>
 
     <form class="form">
-        <a class="close-btn" href="dailyroutine.html">&times;</a>
+        <a class="close-btn" href="dailyroutine.html" aria-label="Close">&times;</a>
 
-        <h2><span class="page-icon">✏</span>Create Daily Routine</h2>
+        <h2><span class="page-icon" aria-hidden="true">&#9998;</span>Create Daily Routine</h2>
 
         <div class="field">
-            <label>Routine Title</label>
+            <label for="title">Routine Title</label>
             <input type="text" id="title" placeholder="e.g. Weekend Routine" required>
         </div>
 
         <div class="subjects-header">
-            <label>Add Tasks</label>
+            <div class="subjects-title-wrap">
+                <label for="routine-task-1">Add Tasks</label>
+                <p class="hint hint-inline"><strong>Time is optional.</strong> Leave time empty to keep a task flexible.</p>
+            </div>
             <div class="header-actions">
                 <button type="reset" class="button clear-btn">Clear All</button>
-                <button type="button" class="button add-btn">➕ Add Task</button>
+                <button type="button" class="button add-btn">&#10133; Add Task</button>
             </div>
         </div>
 
-        <div class="subjects">
+        <div class="subjects" aria-live="polite">
             <div class="subject-group" data-required="true">
-                <input type="text" name="tasks[]" placeholder="Add your task" required>
-                <input type="time" name="times[]">
-                <button type="button" class="remove-btn">Remove</button>
+                <input type="text" id="routine-task-1" name="tasks[]" placeholder="Add your task" required>
+                <div class="time-field">
+                    <input type="time" name="times[]" aria-label="Task time (optional)">
+                    <span class="time-optional-badge">Optional</span>
+                </div>
+                <button type="button" class="remove-btn" aria-label="Remove task">Remove</button>
             </div>
         </div>
 
-        <button type="submit" class="button primary">💾 Save Routine</button>
+        <button type="submit" class="button primary">&#128190; Save Routine</button>
     </form>
 
     <template id="task-template">
         <div class="subject-group">
             <input type="text" name="tasks[]" placeholder="Add task">
-            <input type="time" name="times[]">
-            <button type="button" class="remove-btn">Remove</button>
+            <div class="time-field">
+                <input type="time" name="times[]" aria-label="Task time (optional)">
+                <span class="time-optional-badge">Optional</span>
+            </div>
+            <button type="button" class="remove-btn" aria-label="Remove task">Remove</button>
         </div>
     </template>
 

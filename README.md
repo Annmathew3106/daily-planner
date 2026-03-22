@@ -1,53 +1,49 @@
+# Daily Planner Website
 
-  ## 📝 Daily Planner Website
+This is a simple daily planner website.
+It is built with HTML, CSS, and JavaScript.
 
-This is a simple daily planner website made with HTML, CSS, and JavaScript.
-
-The idea of this project is to help a user plan the day in an easy way. You can add plans for a date, check your progress, and see your level and motivation growth.
+The app helps users:
+- plan daily tasks
+- manage routines
+- track progress
 
 ## Pages
 
-- `index.html`  
-  Home page that shows saved daily plans.
-
-- `create.html`  
-  Page to add a daily plan.
-
-- `progress.html`  
-  Page to see daily, weekly, and monthly progress.
-
-- `level.html`  
-  Page to see motivation progress and level.
-
-- `about.html`  
-  Short information about the website.
+- `index.html`: shows saved daily plans
+- `create.html`: creates or edits a daily plan
+- `progress.html`: shows progress by today, daily, weekly, and monthly views
+- `level.html`: shows motivation level
+- `dailyroutine.html`: shows all daily routines
+- `dailyroutinecreate.html`: creates or edits a routine
+- `about.html`: basic project information
 
 ## Features
 
 - Add plans for a selected date
-- Edit and delete plans
-- Mark tasks as done
-- Track progress
-- Motivation and level system
-- Responsive layout for smaller screens
+- Edit or delete plans
+- Mark tasks complete only on the exact plan date
+- Add tasks with optional time (flexible tasks are allowed)
+- Create and manage daily routines
+- Track progress over time
+- Use a responsive layout for desktop and mobile
 
-## How it works
+## How It Works
 
-This project uses `localStorage`, so the plans are saved in the browser.
+The project uses `localStorage` in the browser.
 
-That means:
+- No database is used
+- No login is required
+- Data stays in the same browser
 
-- no database is used
-- no login is needed
-- data stays on the same browser unless it is cleared
+## Main Files
 
-## Files Used
+- `style.css`: shared styles
+- `create.css`, `progress.css`, `level.css`, `about.css`, `dailyroutine.css`: page styles
+- `index.js`, `create.js`, `progress.js`, `level.js`, `dailyroutine.js`, `dailyroutinecreate.js`: page logic
 
-- `style.css` for common styling
-- `create.css`, `progress.css`, `level.css`, `about.css` for page styling
-- `index.js`, `create.js`, `progress.js`, `level.js` for page logic
+## Technology
 
-
-
-
-
+- HTML
+- CSS
+- JavaScript

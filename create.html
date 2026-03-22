@@ -25,14 +25,23 @@
     <form class="form">
         <a class="close-btn" href="index.html" aria-label="Close">&times;</a>
         <h2><span class="page-icon" aria-hidden="true">&#9998;</span>Create Your Daily Plan</h2>
+        <div class="badge-row create-badges" aria-label="Plan creation tips">
+            <span class="badge"><span class="badge-icon" aria-hidden="true">&#128197;</span>Date-Based Plans</span>
+            <span class="badge"><span class="badge-icon" aria-hidden="true">&#9716;</span>Flexible Time Allowed</span>
+            <span class="badge"><span class="badge-icon" aria-hidden="true">&#128274;</span>Same-Day Check-Off</span>
+        </div>
 
         <div class="field">
             <label for="date">Date</label>
             <input type="date" id="date" name="date" required>
+            <p class="hint hint-inline hint-date-rule"><strong>Check-off rule:</strong> You can tick checkboxes only on this exact date.</p>
         </div>
 
         <div class="subjects-header">
-            <label>Add Your Plan</label>
+            <div class="subjects-title-wrap">
+                <label for="plan-item-1">Add Your Plan</label>
+                <p class="hint hint-inline"><strong>Time is optional.</strong> Leave time empty to keep a plan flexible.</p>
+            </div>
             <div class="header-actions">
                 <button type="reset" class="button clear-btn">Clear All</button>
                 <button type="button" class="button add-btn">&#10133; Add Plan</button>
@@ -40,12 +49,15 @@
         </div>
         <div class="subjects" aria-live="polite">
             <div class="subject-group" data-required="true">
-                <input type="text" name="plans[]" placeholder="Add your plan" required>
-                <input type="time" name="times[]" aria-label="Plan time">
+                <input type="text" id="plan-item-1" name="plans[]" placeholder="Add your plan" required>
+                <div class="time-field">
+                    <input type="time" name="times[]" aria-label="Plan time (optional)">
+                    <span class="time-optional-badge">Optional</span>
+                </div>
                 <button type="button" class="remove-btn" aria-label="Remove plan">Remove</button>
             </div>
         </div>
-        <p class="hint">Add one plan per row for classes, assignments, routines, or reminders.</p>
+        <p class="hint">Add one plan per row for classes, assignments, routines, or reminders. Time can be skipped for flexible plans.</p>
 
         <button type="submit" class="button primary">&#128190; Save Plan</button>
     </form>
@@ -53,7 +65,10 @@
     <template id="subject-template">
         <div class="subject-group">
             <input type="text" name="plans[]" placeholder="Add your plan">
-            <input type="time" name="times[]" aria-label="Plan time">
+            <div class="time-field">
+                <input type="time" name="times[]" aria-label="Plan time (optional)">
+                <span class="time-optional-badge">Optional</span>
+            </div>
             <button type="button" class="remove-btn" aria-label="Remove plan">Remove</button>
         </div>
     </template>

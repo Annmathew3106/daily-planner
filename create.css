@@ -1,15 +1,15 @@
 body {
-    background: var(--bg);
+    background: #fff7f0;
 }
 
 .form {
     max-width: 760px;
     margin: 18px auto;
-    background: var(--surface);
-    border: 1px solid var(--line);
+    background: #fffaf5;
+    border: 1px solid #eedfd2;
     border-radius: 24px;
     padding: 30px;
-    box-shadow: var(--shadow);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
     position: relative;
 }
 
@@ -22,9 +22,9 @@ body {
     border-radius: 10px;
     display: grid;
     place-items: center;
-    background: var(--surface-alt);
-    border: 1px solid var(--line);
-    color: var(--muted);
+    background: #fff4ea;
+    border: 1px solid #eedfd2;
+    color: #756252;
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: 700;
@@ -32,7 +32,7 @@ body {
 
 .close-btn:hover,
 .close-btn:focus-visible {
-    color: var(--text);
+    color: #2f241c;
     background: #f4ece4;
     outline: none;
 }
@@ -40,8 +40,18 @@ body {
 .form h2 {
     margin: 0 0 22px;
     font-size: 1.7rem;
-    color: var(--text);
+    color: #2f241c;
     letter-spacing: -0.02em;
+}
+
+.create-badges {
+    margin-top: -8px;
+    margin-bottom: 12px;
+}
+
+.create-badges .badge {
+    font-size: 0.78rem;
+    padding: 8px 12px;
 }
 
 .field {
@@ -51,7 +61,7 @@ body {
 label {
     display: block;
     margin: 0 0 8px;
-    color: var(--muted);
+    color: #756252;
     font-size: 0.9rem;
     font-weight: 700;
     letter-spacing: 0.02em;
@@ -62,10 +72,10 @@ select {
     width: 100%;
     min-height: 48px;
     padding: 12px 14px;
-    border: 1px solid var(--line);
+    border: 1px solid #eedfd2;
     border-radius: 12px;
     background: #fffaf5;
-    color: var(--text);
+    color: #2f241c;
     font-family: inherit;
     font-size: 0.96rem;
     transition: border-color 160ms ease, box-shadow 160ms ease;
@@ -90,7 +100,16 @@ input[type="date"] {
     margin-top: 18px;
     margin-bottom: 10px;
     padding-top: 18px;
-    border-top: 1px solid var(--line);
+    border-top: 1px solid #eedfd2;
+}
+
+.subjects-title-wrap {
+    display: grid;
+    gap: 4px;
+}
+
+.subjects-title-wrap label {
+    margin: 0;
 }
 
 .header-actions {
@@ -99,10 +118,10 @@ input[type="date"] {
 }
 
 .clear-btn {
-    background: var(--surface-alt);
-    color: var(--muted);
+    background: #fff4ea;
+    color: #756252;
     box-shadow: none;
-    border: 1px solid var(--line);
+    border: 1px solid #eedfd2;
 }
 
 .clear-btn:hover,
@@ -121,15 +140,47 @@ input[type="date"] {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 160px auto;
     gap: 12px;
-    align-items: center;
+    align-items: start;
     padding: 12px;
-    border: 1px solid var(--line);
+    border: 1px solid #eedfd2;
     border-radius: 14px;
-    background: var(--surface-alt);
+    background: #fff4ea;
+}
+
+.subject-group > input[type="text"] {
+    align-self: start;
 }
 
 .subject-group input[type="time"] {
     min-width: 0;
+    min-height: 48px;
+}
+
+.time-field {
+    display: grid;
+    gap: 6px;
+    min-width: 0;
+    align-self: start;
+}
+
+.time-field input[type="time"] {
+    min-width: 0;
+    margin: 0;
+}
+
+.time-optional-badge {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: rgba(238, 140, 63, 0.14);
+    border: 1px solid #e6cdb7;
+    color: #cf6c23;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
 }
 
 .remove-btn {
@@ -138,9 +189,10 @@ input[type="date"] {
     border-radius: 10px;
     border: 1px solid #fecaca;
     background: #fff5f5;
-    color: var(--danger);
+    color: #b91c1c;
     font-weight: 700;
     cursor: pointer;
+    align-self: start;
 }
 
 .remove-btn:hover,
@@ -155,9 +207,24 @@ input[type="date"] {
 
 .hint {
     margin: 10px 0 18px;
-    color: var(--muted);
+    color: #756252;
     font-size: 0.92rem;
     line-height: 1.6;
+}
+
+.hint-inline {
+    margin: 0;
+    font-size: 0.84rem;
+    line-height: 1.45;
+    max-width: 420px;
+}
+
+.hint-inline strong {
+    color: #cf6c23;
+}
+
+.hint-date-rule {
+    margin-top: 8px;
 }
 
 .primary {
@@ -175,6 +242,10 @@ input[type="date"] {
     .subjects-header {
         flex-direction: column;
         align-items: stretch;
+    }
+
+    .create-badges {
+        margin-top: 0;
     }
 
     .subject-group {

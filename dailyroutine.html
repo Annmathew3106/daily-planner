@@ -25,11 +25,13 @@
     <div class="content">
 
         <div class="header-row">
-            <h1><span class="page-icon">📅</span>Daily Routine</h1>
-            <a href="dailyroutinecreate.html" class="button">✏ CREATE</a>
+            <div class="routine-heading">
+                <h1><span class="page-icon" aria-hidden="true">&#128197;</span>Daily Routine</h1>
+                <h2><span class="subtitle-icon" aria-hidden="true">&#10022;</span>Build strong habits with clear daily flow</h2>
+                <div id="routine-stats" class="badge-row routine-stats" aria-live="polite"></div>
+            </div>
+            <a href="dailyroutinecreate.html" class="button routine-create-btn"><span aria-hidden="true">&#9998;</span>Create</a>
         </div>
-
-        <h2>Manage your daily routines</h2>
 
         <div id="routine" class="plans-grid"></div>
 
