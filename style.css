@@ -211,23 +211,31 @@ nav a.active {
 
 .plan,
 .card {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    padding: 18px;
+    position: relative;
+    background: linear-gradient(180deg, rgba(255, 250, 245, 0.98), rgba(255, 244, 234, 0.95));
+    border: 1px solid #eed8c7;
+    border-radius: 22px;
+    padding: 20px;
+    box-shadow: 0 16px 36px rgba(56, 30, 10, 0.1);
+    overflow: hidden;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
 .plan::before {
     content: "";
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, var(--surface-alt), var(--surface));
+    background: linear-gradient(90deg, #f0b88e, #ee8c3f, #cf6c23);
 }
 
 .plan::after {
     content: "";
     position: absolute;
+    top: 0;
+    left: 0;
     width: var(--plan-progress, 0%);
     height: 4px;
     background: linear-gradient(90deg, var(--accent-dark), var(--sidebar));
@@ -237,8 +245,178 @@ nav a.active {
     background: linear-gradient(90deg, var(--success), #14b8a6);
 }
 
+.plan:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(56, 30, 10, 0.16);
+    border-color: #e3c3a8;
+}
+
+.plan-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.plan-heading {
+    display: grid;
+    gap: 8px;
+    min-width: 0;
+}
+
+.plan-heading h3 {
+    margin: 0;
+    font-size: 1.08rem;
+    line-height: 1.3;
+    color: #2f241c;
+}
+
+.plan-status-badge {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid #ead4c2;
+    background: #fff9f4;
+    color: #7e5a3f;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.plan-status-badge--today {
+    border-color: #d8c196;
+    background: #f7ebd5;
+    color: #6f5523;
+}
+
+.plan-status-badge--future {
+    border-color: #bfe5d9;
+    background: #e8f6f1;
+    color: #2e6f5e;
+}
+
+.plan-status-badge--past {
+    border-color: #e5d8cd;
+    background: #f4eee8;
+    color: #6f6257;
+}
+
+.plan-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.plan-edit,
+.plan-delete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 10px;
+    border: 1px solid #e7d5c5;
+    background: #fff9f4;
+    cursor: pointer;
+    transition: transform 0.16s ease, background 0.16s ease;
+}
+
+.plan-edit {
+    color: #cf6c23;
+}
+
+.plan-delete {
+    color: #b91c1c;
+}
+
+.plan-edit:hover,
+.plan-delete:hover {
+    transform: translateY(-1px);
+}
+
+.plan-edit:hover {
+    background: #fff0e2;
+}
+
+.plan-delete:hover {
+    background: #ffe8e8;
+}
+
+.plan-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: 10px;
+    padding: 10px 0;
+    border-top: 1px dashed #ead8ca;
+}
+
+.plan-item:first-of-type {
+    border-top: 1px solid #efdccf;
+}
+
 .plan-item input {
+    margin-top: 2px;
+    width: 16px;
+    height: 16px;
     accent-color: var(--accent);
+}
+
+.plan-item-copy {
+    display: grid;
+    gap: 4px;
+}
+
+.plan-item-copy span:last-child {
+    font-size: 0.95rem;
+    color: #2f241c;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.plan-item-time {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #f8e9dc, #f5ddc8);
+    color: #7f4f2a;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.plan-item input:checked + .plan-item-copy span:last-child {
+    text-decoration: line-through;
+    color: #7d6a58;
+}
+
+.plan-check-hint {
+    margin: 12px 0 0;
+    padding-top: 10px;
+    border-top: 1px dashed #ead8ca;
+    color: #756252;
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px dashed #e4cdbb;
+    background: #fffaf4;
+    text-align: center;
+    color: #756252;
+    font-weight: 600;
 }
 
 @media (max-width: 1200px) {
@@ -306,5 +484,13 @@ nav a.active {
 
     .plans-grid {
         grid-template-columns: 1fr;
+    }
+
+    .plan-header {
+        flex-direction: column;
+    }
+
+    .plan-actions {
+        width: 100%;
     }
 }
