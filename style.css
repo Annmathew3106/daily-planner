@@ -394,8 +394,8 @@ nav a.active {
 }
 
 .plan-item input:checked + .plan-item-copy span:last-child {
-    text-decoration: line-through;
-    color: #7d6a58;
+    color: #a39384;
+    font-weight: 500;
 }
 
 .plan-check-hint {
