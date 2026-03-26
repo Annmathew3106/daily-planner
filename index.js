@@ -57,7 +57,13 @@ function savePlans(plans) {
 }
 
 function formatItemTime(timeValue) {
-    return timeValue || "";
+    if (!timeValue) return "";
+    const [hour, minute] = String(timeValue).split(":");
+    const hourNum = Number(hour);
+    if (Number.isNaN(hourNum) || minute == null) return String(timeValue);
+    const ampm = hourNum >= 12 ? "PM" : "AM";
+    const h12 = hourNum % 12 || 12;
+    return `${h12}:${minute} ${ampm}`;
 }
 
 function renderSummaryBadges(plans) {
