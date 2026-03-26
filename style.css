@@ -240,3 +240,71 @@ nav a.active {
 .plan-item input {
     accent-color: var(--accent);
 }
+
+@media (max-width: 1200px) {
+    .plans-grid {
+        grid-template-columns: repeat(2, minmax(240px, 1fr));
+    }
+}
+
+@media (max-width: 860px) {
+    body {
+        padding-left: 0;
+        padding-top: 84px;
+    }
+
+    nav {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid rgba(47, 36, 28, 0.08);
+        box-shadow: 0 8px 24px rgba(47, 36, 28, 0.08);
+        z-index: 20;
+    }
+
+    nav::before {
+        padding: 10px 14px 6px;
+        font-size: 0.64rem;
+        letter-spacing: 0.13em;
+    }
+
+    nav ul {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 8px;
+        padding: 0 10px 10px;
+        overflow-x: auto;
+        scrollbar-width: thin;
+    }
+
+    nav li {
+        margin-bottom: 0;
+        flex: 0 0 auto;
+    }
+
+    nav a {
+        padding: 10px 12px;
+        border-radius: 10px;
+        font-size: 0.78rem;
+        white-space: nowrap;
+    }
+
+    .content {
+        margin: 12px;
+        padding: 20px 16px;
+        border-radius: 18px;
+    }
+
+    .header-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    .plans-grid {
+        grid-template-columns: 1fr;
+    }
+}
